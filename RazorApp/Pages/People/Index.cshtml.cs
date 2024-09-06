@@ -23,7 +23,7 @@ namespace RazorApp.Pages.People
 
         public async Task OnGetAsync()
         {
-            Person = await _context.Person.ToListAsync();
+            Person = await _context.Person.AsNoTracking().Include("Courses").ToListAsync();
         }
     }
 }
